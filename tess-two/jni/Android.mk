@@ -9,13 +9,17 @@
 # export LIBJPEG_PATH=<path-to-libjpeg>
 #
 # Or you can fill out and uncomment the following definitions:
-# TESSERACT_PATH := <path-to-tesseract>
-# LEPTONICA_PATH := <path-to-leptonica>
-# LIBJPEG_PATH := <path-to-libjpeg>
+TESSERACT_PATH := $(BASE_PATH)/external/tesseract-3.01
+LEPTONICA_PATH := $(BASE_PATH)/external/leptonica-1.68
+LIBJPEG_PATH := $(BASE_PATH)/external/libjpeg
 
 #TESSERACT_PATH := $(call my-dir)/../external/tesseract-3.01
 #LEPTONICA_PATH := $(call my-dir)/../external/leptonica-1.68
 #LIBJPEG_PATH := $(call my-dir)/../external/libjpeg
+
+ifeq "$(BASE_PATH)" ""
+  $(error You must set the BASE_PATH variable to the tess-two root)
+endif
 
 ifeq "$(TESSERACT_PATH)" ""
   $(error You must set the TESSERACT_PATH variable to the Tesseract source \
